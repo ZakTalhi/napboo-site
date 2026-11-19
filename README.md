@@ -9,9 +9,10 @@ no build step, no scripts, and no fonts or trackers from anywhere else.
   (served at `/delete-account`)
 - `public/404.html`: page not found
 
-**Hosting.** Cloudflare Pages builds this repository on every push to `main`
-(framework preset None, no build command, output directory `public`) and serves
-the same pages on two domains:
+**Hosting.** A Cloudflare Worker named `napboo` with no script, set up by
+`wrangler.jsonc`, serves `public/` as static assets. Workers Builds deploys it on
+every push to `main` (no build command; deploy command `npx wrangler deploy`). It
+serves the same pages on two domains:
 
 - `napboo.co.uk` for the UK;
 - `napboo.com` for the US and everywhere else.

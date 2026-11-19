@@ -1,0 +1,14 @@
+// Cloudflare Workers: a Worker with no script that serves the pages in public/.
+// Workers Builds runs `npx wrangler deploy` on every push to main. The name
+// must stay the same as the Worker's name in the Cloudflare dashboard.
+{
+  "name": "napboo",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    // /delete-account serves delete-account.html; /delete-account.html redirects there.
+    "html_handling": "auto-trailing-slash",
+    // A missing page answers 404 with public/404.html.
+    "not_found_handling": "404-page"
+  }
+}
